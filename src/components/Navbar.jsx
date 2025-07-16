@@ -58,7 +58,7 @@ const Navbar = ({location,getLocation}) => {
          <span className='absolute px-2 text-white bg-red-600 rounded-full -top-3 -right-3'>0</span></Link>
           <div>
       <SignedOut>
-        <SignInButton className ='p-1 text-xl font-semibold bg-blue-400 border-2 border-blue-400 rounded-lg' />
+        <SignInButton className="bg-gradient-to-r from-[#0f2027] to-[#764ba2] text-white px-6 py-3 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl capitalize" />
       </SignedOut>
       <SignedIn>
         <UserButton />
