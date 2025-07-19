@@ -13,10 +13,10 @@ const Navbar = ({location,getLocation}) => {
  }
 
   return (
-    <div className='flex items-center justify-between p-4 bg-white shadow-2xl'>
+    <div className='flex items-center justify-between p-4 bg-white shadow-2xl w-[100%]'>
         {/* Left Navbar */}
         <div className='flex items-center justify-center gap-12 ml-16 '>
-         <Link to={'/'}>
+         <Link to={'/'}> 
       <div className='text-2xl font-bold'>
         <span className='text-red-600 '>D</span>igi<span className='text-red-600'>K</span>art
       </div>
@@ -33,8 +33,8 @@ const Navbar = ({location,getLocation}) => {
       </div>
           
          {
-        dropdown ? <div className="fixed flex flex-col items-center justify-center w-64 h-32 gap-3 ml-40 transition-transform duration-300 bg-white border-2 border-white shadow-md mt-52 hover:scale-105 rounded-2xl">
-              <h2 className="text-lg font-bold">Change Location</h2>
+        dropdown ? <div className="fixed z-10 flex flex-col items-center justify-center w-64 h-32 gap-3 ml-40 transition-transform duration-300 bg-white border-2 border-white shadow-md mt-52 hover:scale-105 rounded-2xl">
+              <h2 className="text-lg font-bold">Detect Location</h2>
                <button className="px-4 py-2 text-white transition-colors duration-200 bg-red-600 rounded-lg shadow-md hover:bg-red-700"
                onClick={()=>{
        getLocation();

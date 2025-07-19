@@ -6,6 +6,8 @@ import Products from "./Pages/Products";
 import Contact from "./Pages/Contact";
 import Cart from "./Pages/Cart";
 import { useEffect,useState } from "react";
+import Features from "./components/Features";
+import Footer from "./components/Footer";
 
 function App() {
  const [location, setLocation] = useState({
@@ -52,8 +54,11 @@ function App() {
   <Route path = '/products' element = {<Products/>} />
   <Route path = '/cart' element = {<Cart/>} />
 </Routes>
+    <Features/>
+    <Footer/>
  </>
   )
 }
 
 export default App
+
