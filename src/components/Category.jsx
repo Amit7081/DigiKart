@@ -2,17 +2,10 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Category = () => {
-  const { data } = useContext(AuthContext);
+  const {category_data } = useContext(AuthContext);
 
-  const getUniqueData = (data, property) => {
-    const new_val = data?.map((elem) => elem[property]);
-    const unique_val = [...new Set(new_val)];
-    return unique_val;
-  };
 
-  if (!data?.products) return null;
-
-  const unique_val = getUniqueData(data.products, 'category');
+  const unique_val = category_data;
 
   return (
     <div className="flex flex-wrap items-center gap-4 px-4 bg-gradient-to-r from-[#0f2027] via-[#203a43] to-[#2c5364] justify-evenly">
