@@ -10,6 +10,9 @@ const Filter = ({
   setSearch,
   category,
   setCategory,
+  setBrand,
+  brand,
+  setPage,
 }) => {
   const { category_data, brand_data } = useContext(AuthContext);
 
@@ -21,7 +24,8 @@ const Filter = ({
           fixed lg:static top-0 left-0 h-full bg-gray-200 p-4 z-40
           w-auto sm:w-1/2 lg:w-64
           transition-transform duration-300
-          mt-10 mb-16 ml-20 rounded-md 
+          mt-10 mb-16 rounded-md
+          'ml-0 lg:ml-24
           ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }
@@ -36,7 +40,7 @@ const Filter = ({
         </button>
 
         {/* Sidebar Content */}
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center my-20">
           <input
             type="text"
             placeholder="Search..."
@@ -58,7 +62,10 @@ const Filter = ({
                   value={item}
                   name={item}
                   checked={category === item}
-                  onChange={(e) => setCategory(e.target.value)}
+                  onChange={(e) => {
+                    setCategory(e.target.value);
+                    setPage(1);
+                  }}
                 />
                 <span>{item}</span>
               </label>
@@ -69,6 +76,11 @@ const Filter = ({
           <select
             defaultValue="Sony"
             className="p-2 ml-6 border-2 border-gray-600 rounded-md outline-none cursor-pointer"
+            value={brand}
+            onChange={(e) => {
+              setBrand(e.target.value);
+              setPage(1);
+            }}
           >
             {brand_data?.map((item, index) => (
               <option value={item} key={index}>
@@ -92,6 +104,18 @@ const Filter = ({
               setRange([range[0], Number(e.target.value)]);
             }}
           />
+
+          <button
+            className="p-2 text-lg font-semibold bg-red-500 border-2 border-red-600 rounded-md shadow-xl hover:bg-red-700"
+            onClick={() => {
+              setBrand("ALL"),
+                setCategory("ALL"),
+                setRange([0, 5000]),
+                setSearch("");
+            }}
+          >
+            Reset Filters
+          </button>
         </div>
       </div>
     </>
