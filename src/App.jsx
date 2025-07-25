@@ -8,6 +8,7 @@ import Cart from "./Pages/Cart";
 import { useEffect, useState } from "react";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
+import SingleProduct from "./Pages/SingleProduct";
 
 function App() {
   const [location, setLocation] = useState({
@@ -50,6 +51,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
       </Routes>
       <Features />
       <Footer />

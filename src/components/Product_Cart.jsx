@@ -4,6 +4,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import Pagination from "./Pagination";
 import Lottie from "lottie-react";
 import animationdata from "../assets/Data Not Found.json";
+import { useNavigate } from "react-router-dom";
 
 const Product_Cart = ({
   setSidebarOpen,
@@ -19,6 +20,7 @@ const Product_Cart = ({
       console.log(data.products);
     }
   }, [data]);
+  const navigate = useNavigate();
 
   return (
     <div className="flex-1 p-4">
@@ -43,6 +45,7 @@ const Product_Cart = ({
                   src={item.image}
                   alt="Loading"
                   className="object-cover rounded-full shadow-lg h-[220px] w-[220px]"
+                  onClick={() => navigate(`/products/${item.id}`)}
                 />
                 <h3 className="mb-2 text-xl font-semibold text-left text-gray-700">
                   ${item.price}
