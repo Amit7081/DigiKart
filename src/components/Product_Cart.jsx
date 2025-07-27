@@ -5,6 +5,7 @@ import Pagination from "./Pagination";
 import Lottie from "lottie-react";
 import animationdata from "../assets/Data Not Found.json";
 import { useNavigate } from "react-router-dom";
+import { CartData } from "../Context/CartContext";
 
 const Product_Cart = ({
   setSidebarOpen,
@@ -21,6 +22,8 @@ const Product_Cart = ({
     }
   }, [data]);
   const navigate = useNavigate();
+
+  const { AddToCart } = useContext(CartData);
 
   return (
     <div className="flex-1 p-4">
@@ -39,12 +42,12 @@ const Product_Cart = ({
             {filterdata?.slice((page - 1) * 6, page * 6).map((item, index) => (
               <div
                 key={index}
-                className="border-2 border-gray-400 rounded-lg shadow-3xl h-[380px] w-[90%] max-w-[250px] my-6 p-4 transition-transform duration-300 hover:scale-105"
+                className="border-2 border-gray-100 bg-gray-100 rounded-lg shadow-3xl h-[380px] w-[90%] max-w-[270px] my-6 p-4 transition-transform duration-300 hover:scale-105"
               >
                 <img
                   src={item.image}
                   alt="Loading"
-                  className="object-cover rounded-full shadow-lg h-[220px] w-[220px]"
+                  className="object-cover rounded-full shadow-lg h-[220px] w-[220px] bg-gray-100"
                   onClick={() => navigate(`/products/${item.id}`)}
                 />
                 <h3 className="mb-2 text-xl font-semibold text-left text-gray-700">
@@ -53,7 +56,12 @@ const Product_Cart = ({
                 <h3 className="mb-2 text-xl font-semibold text-center text-gray-700 truncate">
                   {item.title}
                 </h3>
-                <button className="p-2 ml-8 font-semibold text-center bg-red-600 border-2 border-red-600 rounded-md shadow-sm hover:bg-red-700">
+                <button
+                  className="p-2 ml-8 font-semibold text-center bg-red-600 border-2 border-red-600 rounded-md shadow-sm hover:bg-red-700"
+                  onClick={() => {
+                    AddToCart(item);
+                  }}
+                >
                   Add to Cart
                 </button>
               </div>
@@ -65,7 +73,7 @@ const Product_Cart = ({
         <div className="flex flex-col items-center justify-center mt-2">
           <Lottie
             animationData={animationdata}
-            className="w-[700px] h-[600px]"
+            className="h-[500px] flex justify-center items-center "
           />
         </div>
       )}

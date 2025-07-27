@@ -8,13 +8,15 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartData } from "../Context/CartContext";
 
 const Navbar = ({ location, getLocation }) => {
   const [dropdown, setdropdown] = useState(false);
   const ShowUp = () => {
     setdropdown(!dropdown);
   };
+  const { cartval } = useContext(CartData);
 
   return (
     <div className="flex items-center justify-between p-4 bg-white shadow-2xl w-[100%]">
@@ -77,7 +79,7 @@ const Navbar = ({ location, getLocation }) => {
         <Link to={"/cart"} className="relative">
           <IoCartOutline className="h-7 w-7" />
           <span className="absolute px-2 text-white bg-red-600 rounded-full -top-3 -right-3">
-            0
+            {cartval.length}
           </span>
         </Link>
         <div>
