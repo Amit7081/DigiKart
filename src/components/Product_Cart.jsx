@@ -1,5 +1,4 @@
-// src/components/Product_Cart.jsx
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import Pagination from "./Pagination";
 import Lottie from "lottie-react";
@@ -15,66 +14,74 @@ const Product_Cart = ({
   setPage,
 }) => {
   const { data } = useContext(AuthContext);
+  const { AddToCart } = useContext(CartData);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data) {
       console.log(data.products);
     }
   }, [data]);
-  const navigate = useNavigate();
-
-  const { AddToCart } = useContext(CartData);
 
   return (
     <div className="flex-1 p-4">
+      {/* Show Sidebar on Mobile */}
       <button
-        className="px-4 py-2 mb-4 text-white bg-blue-600 rounded lg:hidden"
+        className="px-4 py-2 mb-4 text-sm font-medium text-white bg-blue-600 rounded md:hidden"
         onClick={() => setSidebarOpen(true)}
       >
         Show Menu
       </button>
 
-      {/* Product Grid */}
-
+      {/* Products */}
       {filterdata?.length > 0 ? (
-        <div className="flex flex-col items-center justify-center px-2 mr-20">
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 place-items-center">
+        <div className="flex flex-col items-center justify-center w-full">
+          <div className="grid w-full grid-cols-1 gap-4 px-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 max-w-7xl">
             {filterdata?.slice((page - 1) * 6, page * 6).map((item, index) => (
               <div
                 key={index}
-                className="border-2 border-gray-100 bg-gray-100 rounded-lg shadow-3xl h-[380px] w-[90%] max-w-[270px] my-6 p-4 transition-transform duration-300 hover:scale-105"
+                className="flex flex-col items-center justify-between w-full p-4 transition-transform duration-300 bg-gray-100 border border-gray-200 shadow-md rounded-xl hover:scale-105"
               >
                 <img
                   src={item.image}
-                  alt="Loading"
-                  className="object-cover rounded-full shadow-lg h-[220px] w-[220px] bg-gray-100"
+                  alt={item.title}
+                  className="object-cover bg-white rounded-full shadow-lg cursor-pointer h-44 w-44"
                   onClick={() => navigate(`/products/${item.id}`)}
                 />
-                <h3 className="mb-2 text-xl font-semibold text-left text-gray-700">
-                  ${item.price}
+                <h3 className="mt-2 text-lg font-semibold text-gray-700">
+                  ₹{item.price}
                 </h3>
-                <h3 className="mb-2 text-xl font-semibold text-center text-gray-700 truncate">
+                <h4 className="w-full px-2 text-sm font-medium text-center text-gray-600 truncate">
                   {item.title}
-                </h3>
+                </h4>
                 <button
-                  className="p-2 ml-8 font-semibold text-center bg-red-600 border-2 border-red-600 rounded-md shadow-sm hover:bg-red-700"
-                  onClick={() => {
-                    AddToCart(item);
-                  }}
+                  className="w-full px-4 py-2 mt-2 text-white transition bg-red-600 border border-red-600 rounded-lg shadow sm:w-auto hover:bg-red-700"
+                  onClick={() => AddToCart(item)}
                 >
                   Add to Cart
                 </button>
               </div>
             ))}
           </div>
-          <Pagination page={page} setPage={setPage} dynamicpage={dynamicpage} />
+
+          {/* Pagination */}
+          <div className="mt-8">
+            <Pagination
+              page={page}
+              setPage={setPage}
+              dynamicpage={dynamicpage}
+            />
+          </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center mt-2">
+        <div className="flex flex-col items-center justify-center w-full mt-4">
           <Lottie
             animationData={animationdata}
-            className="h-[500px] flex justify-center items-center "
+            className="h-[300px] sm:h-[400px] md:h-[500px]"
           />
+          <p className="mt-4 text-lg font-medium text-gray-500">
+            No Products Found
+          </p>
         </div>
       )}
     </div>

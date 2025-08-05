@@ -25,7 +25,7 @@ const Filter = ({
           w-auto sm:w-1/2 lg:w-64
           transition-transform duration-300
           mt-10 mb-16 rounded-md
-          'ml-0 lg:ml-24
+          'ml-0 lg:ml-24 overflow-y-auto scrollbar-hidden
           ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
           }
@@ -40,7 +40,7 @@ const Filter = ({
         </button>
 
         {/* Sidebar Content */}
-        <div className="flex flex-col items-center justify-center my-20">
+        <div className="flex flex-col items-center justify-center my-20 overflow-scroll ">
           <input
             type="text"
             placeholder="Search..."
