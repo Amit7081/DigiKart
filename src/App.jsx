@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import SingleProduct from "./Pages/SingleProduct";
+import CategoryProduct from "./Pages/CategoryProduct";
 
 function App() {
   const [location, setLocation] = useState({
@@ -49,6 +50,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/category/:category" element={<CategoryProduct />} />
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/products/:id" element={<SingleProduct />} />

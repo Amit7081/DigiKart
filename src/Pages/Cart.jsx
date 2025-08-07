@@ -85,64 +85,69 @@ const Cart = () => {
           {/* // Contact details */}
           <div className="flex items-center justify-between mx-32 my-8">
             <div className="flex flex-col items-start justify-center gap-4 p-4 border-2 border-gray-300">
-              <div className="w-full text-xl font-bold text-center">
-                Delivery Info
-              </div>
-              <div className="w-full">
-                <label htmlFor="">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter your name"
-                  className="w-full p-2 mt-1 border-2 border-gray-200 rounded-md outline-none"
-                />
-              </div>
-              <div className="w-full">
-                <label htmlFor="">Address</label>
-                <input
-                  type="text"
-                  placeholder="Enter your Address"
-                  className="w-full p-2 border-2 border-gray-200 rounded-md outline-none"
-                />
-              </div>
-              <div className="flex items-center justify-start gap-4 p-2">
-                <div>
-                  <h1>State</h1>
+              <form action="">
+                <div className="w-full text-xl font-bold text-center">
+                  Delivery Info
+                </div>
+                <div className="w-full">
+                  <label htmlFor="">Full Name</label>
                   <input
                     type="text"
-                    placeholder="Enter your state"
-                    className="p-2 border-2 border-gray-200 rounded-md outline-none"
+                    placeholder="Enter your name"
+                    className="w-full p-2 mt-1 border-2 border-gray-200 rounded-md outline-none"
                   />
                 </div>
-                <div>
-                  <h1>Postcode</h1>
+                <div className="w-full">
+                  <label htmlFor="">Address</label>
                   <input
                     type="text"
-                    placeholder="Enter your Postcode"
-                    className="p-2 border-2 border-gray-200 rounded-md outline-none"
+                    placeholder="Enter your Address"
+                    className="w-full p-2 border-2 border-gray-200 rounded-md outline-none"
                   />
                 </div>
-              </div>
-              <div className="flex items-center justify-start gap-4 p-2">
-                <div>
-                  <h1>Country</h1>
-                  <input
-                    type="text"
-                    placeholder="Enter your Country"
-                    className="p-2 border-2 border-gray-200 rounded-md outline-none"
-                  />
+                <div className="flex items-center justify-start gap-4 p-2">
+                  <div>
+                    <h1>State</h1>
+                    <input
+                      type="text"
+                      placeholder="Enter your state"
+                      className="p-2 border-2 border-gray-200 rounded-md outline-none"
+                    />
+                  </div>
+                  <div>
+                    <h1>Postcode</h1>
+                    <input
+                      type="text"
+                      placeholder="Enter your Postcode"
+                      className="p-2 border-2 border-gray-200 rounded-md outline-none"
+                    />
+                  </div>
                 </div>
-                <div>
-                  <h1>phone no.</h1>
-                  <input
-                    type="text"
-                    placeholder="Enter your Phone no."
-                    className="p-2 border-2 border-gray-200 rounded-md outline-none"
-                  />
+                <div className="flex items-center justify-start gap-4 p-2">
+                  <div>
+                    <h1>Country</h1>
+                    <input
+                      type="text"
+                      placeholder="Enter your Country"
+                      className="p-2 border-2 border-gray-200 rounded-md outline-none"
+                    />
+                  </div>
+                  <div>
+                    <h1>phone no.</h1>
+                    <input
+                      type="text"
+                      placeholder="Enter your Phone no."
+                      className="p-2 border-2 border-gray-200 rounded-md outline-none"
+                    />
+                  </div>
                 </div>
-              </div>
-              <button className="p-2 ml-40 font-semibold text-center bg-red-600 border-2 border-red-400 rounded-md hover:bg-red-700">
-                Submit
-              </button>
+                <button
+                  type="submit"
+                  className="p-2 ml-40 font-semibold text-center bg-red-600 border-2 border-red-400 rounded-md hover:bg-red-700"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
             <div className="flex flex-col items-start justify-center gap-4 p-4 border-2 border-white shadow-xl">
               <h1 className="w-full text-xl font-bold text-center">

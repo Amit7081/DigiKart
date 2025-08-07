@@ -35,12 +35,12 @@ const Product_Cart = ({
 
       {/* Products */}
       {filterdata?.length > 0 ? (
-        <div className="flex flex-col items-center justify-center w-full">
+        <div className="flex flex-col items-center justify-center w-full h-full">
           <div className="grid w-full grid-cols-1 gap-4 px-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 max-w-7xl">
             {filterdata?.slice((page - 1) * 6, page * 6).map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-between w-full p-4 transition-transform duration-300 bg-gray-100 border border-gray-200 shadow-md rounded-xl hover:scale-105"
+                className="flex h-[380px] flex-col items-center justify-between w-full p-4 transition-transform duration-300 bg-gray-100 border border-gray-200 shadow-md rounded-xl hover:scale-105"
               >
                 <img
                   src={item.image}

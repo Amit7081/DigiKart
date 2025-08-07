@@ -40,7 +40,7 @@ const Filter = ({
         </button>
 
         {/* Sidebar Content */}
-        <div className="flex flex-col items-center justify-center my-20 overflow-scroll ">
+        <div className="flex flex-col items-center justify-center h-full my-20 overflow-scroll">
           <input
             type="text"
             placeholder="Search..."
