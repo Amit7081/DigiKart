@@ -19,7 +19,7 @@ const Product_Cart = ({
 
   useEffect(() => {
     if (data) {
-      console.log(data.products);
+      console.log(data);
     }
   }, [data]);
 
